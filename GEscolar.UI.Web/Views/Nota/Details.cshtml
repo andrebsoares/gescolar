@@ -1,0 +1,48 @@
+﻿@model GEscolar.Dominio.gesc_nota
+
+@{
+    ViewBag.Title = "Mais detalhes de Notas";
+    Layout = "~/Views/Shared/_LayoutInfoSemBotoes.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOT_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOT_IN_CODIGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOT_DE_NOTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOT_DE_NOTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALT_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALT_IN_CODIGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DTU_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DTU_IN_CODIGO)
+        </dd>
+
+    </dl>
+</div>
+@section BotoesFooterMaisInfo{
+    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href='@Url.Action("Index")'">Voltar</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='@Url.Action("Edit",new{id = Model.NOT_IN_CODIGO})'">Editar</button>
+}
+

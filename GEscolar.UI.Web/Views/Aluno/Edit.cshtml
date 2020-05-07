@@ -1,0 +1,69 @@
+﻿@model GEscolar.Dominio.gesc_aluno
+
+@{
+    ViewBag.Title = "Edição do Aluno";
+    Layout = "~/Views/Shared/_LayoutEdicao.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(x => x.ALU_IN_CODIGO)
+        @Html.HiddenFor(x => x.ALU_CH_STATUS)
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALU_IN_CODIGO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALU_IN_CODIGO, new { htmlAttributes = new { @class = "form-control", disabled = "disabled"} })
+                @Html.ValidationMessageFor(model => model.ALU_IN_CODIGO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALU_ST_NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALU_ST_NOME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ALU_ST_NOME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALU_ST_SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALU_ST_SENHA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ALU_ST_SENHA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALU_ST_CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALU_ST_CPF, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ALU_ST_CPF, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALU_CH_STATUS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ALU_CH_STATUS, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.ALU_CH_STATUS, new SelectList(
+                                                                          new List<Object>{
+                                                                          new { value = 'A' , text = "Ativo"},
+                                                                          new { value = 'I' , text = "Inativo" },
+                                                                      },
+                                                                      "value",
+                                                                      "text",
+                                                               'x'), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ALU_CH_STATUS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

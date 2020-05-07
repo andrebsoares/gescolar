@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2819CC32-E921-43E7-A4A1-0AB1D51887D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GEscolar.Aplicacao</RootNamespace>
+    <AssemblyName>GEscolar.Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlunoAplicacao.cs" />
+    <Compile Include="AlunoAplicacaoConstrutor.cs" />
+    <Compile Include="AlunoTurmaAplicacao.cs" />
+    <Compile Include="AlunoTurmaAplicacaoConstrutor.cs" />
+    <Compile Include="CursoAplicacao.cs" />
+    <Compile Include="CursoAplicacaoConstrutor.cs" />
+    <Compile Include="DisciplinaAplicacao.cs" />
+    <Compile Include="DisciplinaAplicacaoConstrutor.cs" />
+    <Compile Include="DisciplinaTurmaAplicacao.cs" />
+    <Compile Include="DisciplinaTurmaAplicacaoConstrutor.cs" />
+    <Compile Include="FaltaAplicacao.cs" />
+    <Compile Include="FaltaAplicacaoConstrutor.cs" />
+    <Compile Include="NotaAplicacao.cs" />
+    <Compile Include="NotaAplicacaoConstrutor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TurmaAplicacao.cs" />
+    <Compile Include="TurmaAplicacaoConstrutor.cs" />
+    <Compile Include="ProfessorAplicacao.cs" />
+    <Compile Include="ProfessorAplicacaoConstrutor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEscolar.Dominio\GEscolar.Dominio.csproj">
+      <Project>{3121b975-3a5e-4910-9b55-6aac19463394}</Project>
+      <Name>GEscolar.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEscolar.RepositorioEF\GEscolar.RepositorioEF.csproj">
+      <Project>{e2498a67-f111-4220-83d9-3700600e20d9}</Project>
+      <Name>GEscolar.RepositorioEF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

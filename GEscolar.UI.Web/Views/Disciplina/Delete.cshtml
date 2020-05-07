@@ -1,0 +1,32 @@
+﻿@model GEscolar.Dominio.gesc_disciplina
+
+@{
+    ViewBag.Title = "Deseja realmente excluir essa Disciplina?";
+    Layout = "~/Views/Shared/_LayoutDelete.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    <div>
+        <dl class="dl-horizontal">
+            @Html.AntiForgeryToken()            
+            <dt>
+                @Html.DisplayNameFor(model => model.DIS_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DIS_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DIS_ST_DESCRICAO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DIS_ST_DESCRICAO)
+            </dd>
+
+        </dl>
+               
+    </div>
+}

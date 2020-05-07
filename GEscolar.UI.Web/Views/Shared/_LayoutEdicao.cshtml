@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutEdicaoSemBotoes.cshtml";
+}
+
+@RenderSection("informacoes", required: false)
+
+@RenderSection("TituloLayoutSalvar", false)
+
+@RenderBody()
+
+@section BotoesFooterGrid {
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='@Url.Action("Index")'">Cancelar</button>
+    <button type="submit" class="btn btn-primary" form="form_Submit">Salvar</button>
+}
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

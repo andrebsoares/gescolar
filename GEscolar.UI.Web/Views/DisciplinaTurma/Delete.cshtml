@@ -1,0 +1,49 @@
+﻿@model GEscolar.Dominio.gesc_disciplinaturma
+
+@{
+    ViewBag.Title = "Deseja realmente excluir essa Disciplina Turma?";
+    Layout = "~/Views/Shared/_LayoutDelete.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new {id = "form_Submit"}))
+{
+    
+    <div>
+        <dl class="dl-horizontal">
+            @Html.AntiForgeryToken()
+            <dt>
+                @Html.DisplayNameFor(model => model.DTU_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DTU_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DIS_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DIS_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TUR_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TUR_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PRO_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PRO_IN_CODIGO)
+            </dd>
+
+        </dl>
+        
+    </div>
+}

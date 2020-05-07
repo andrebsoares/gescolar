@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GEscolar.Dominio.gesc_nota>
+@using GridMvc.Html
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrid.cshtml";
+    ViewBag.Title = "Lista de Notas";
+}
+
+
+@Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(x => x.NOT_IN_CODIGO).Titled("Código").SetWidth(10).Sortable(true).Filterable(true);
+            columns.Add(x => x.ALunosTurmas.Alunos.ALU_ST_NOME).Titled("Nome").Sortable(true).Filterable(true);
+            columns.Add(x => x.NOT_DE_NOTA).Titled("Nota").Sortable(true).Filterable(true);                                    
+            columns.Add(x => x.DisciplinasTurmas.Disciplinas.DIS_ST_DESCRICAO).Titled("Disciplina").Sortable(true).Filterable(true);
+            columns.Add(x => x.DisciplinasTurmas.Professores.PRO_ST_NOME).Titled("Professor").Sortable(true).Filterable(true);
+            columns.Add(x => x.DisciplinasTurmas.Turmas.TUR_ST_DESCRICAO).Titled("Turma").Sortable(true).Filterable(true);
+            columns.Add(x => x.DisciplinasTurmas.Turmas.Cursos.CUR_ST_DESCRICAO).Titled("Curso").Sortable(true).Filterable(true);
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Edit", new { id = d.NOT_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/editar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Editar"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Details", new { id = d.NOT_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/detalhes.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Mais detalhes"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Delete", new { id = d.NOT_IN_CODIGO }, new
+                    {
+                        style = "background: url('" + Url.Content("~/images/apagar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                        @title = "Apagar"
+                    })
+        </div>
+    </b>);
+        }).WithPaging(10).Sortable(true).WithMultipleFilters().SetLanguage("pt")

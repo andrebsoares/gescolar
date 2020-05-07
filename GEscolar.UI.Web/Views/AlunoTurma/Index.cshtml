@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GEscolar.Dominio.gesc_alunoturma>
+@using GridMvc.Html
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrid.cshtml";
+    ViewBag.Title = "Lista de Aluno";
+}
+
+@Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(x => x.ALT_IN_CODIGO).Titled("Código").SetWidth(10).Sortable(true).Filterable(true);
+            columns.Add(x => x.ALT_CH_STATUS).Titled("Status").Sortable(true).Filterable(true);
+            columns.Add(x => x.Alunos.ALU_ST_NOME).Titled("Aluno").Sortable(true).Filterable(true);
+            columns.Add(x => x.Turmas.TUR_ST_DESCRICAO).Titled("Descrição").Sortable(true).Filterable(true);
+            
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Edit", new { id = d.ALT_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/editar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Editar"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Details", new { id = d.ALT_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/detalhes.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Mais detalhes"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Delete", new { id = d.ALT_IN_CODIGO }, new
+                    {
+                        style = "background: url('" + Url.Content("~/images/apagar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                        @title = "Apagar"
+                    })
+        </div>
+    </b>);
+        }).WithPaging(10).Sortable(true).WithMultipleFilters().SetLanguage("pt")

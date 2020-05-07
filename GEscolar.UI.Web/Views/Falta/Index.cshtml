@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GEscolar.Dominio.gesc_falta>
+@using GridMvc.Html
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrid.cshtml";
+    ViewBag.Title = "Lista de Falta";
+}
+
+
+@Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(x => x.FAL_IN_CODIGO).Titled("Código").SetWidth(10).Sortable(true).Filterable(true);
+            columns.Add(x => x.FAL_IN_QTDE).Titled("Quantidade").Sortable(true).Filterable(true);
+            columns.Add(x => x.FAL_DT_DIA).Titled("Data").Sortable(true).Filterable(true);
+            columns.Add(x => x.ALT_IN_CODIGO).Titled("Turma").Sortable(true).Filterable(true);
+            columns.Add(x => x.DTU_IN_CODIGO).Titled("Professor").Sortable(true).Filterable(true);
+            columns.Add(x => x.AlunoTurmas.Alunos.ALU_ST_NOME).Titled("Aluno").Sortable(true).Filterable(true);                                  
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Edit", new { id = d.FAL_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/editar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Editar"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Details", new { id = d.FAL_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/detalhes.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Mais detalhes"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Delete", new { id = d.FAL_IN_CODIGO }, new
+                    {
+                        style = "background: url('" + Url.Content("~/images/apagar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                        @title = "Apagar"
+                    })
+        </div>
+    </b>);
+        }).WithPaging(10).Sortable(true).WithMultipleFilters().SetLanguage("pt")

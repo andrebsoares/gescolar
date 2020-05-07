@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutInfoSemBotoes.cshtml";
+}
+
+@RenderBody()
+
+@section BotoesFooterMaisInfo{
+    @*@<button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='@Url.Action("Index")'">Editar</button>*@
+    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href='@Url.Action("Index")'">Voltar</button>
+}

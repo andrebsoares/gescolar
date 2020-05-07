@@ -1,0 +1,49 @@
+﻿@model GEscolar.Dominio.gesc_nota
+
+@{
+    ViewBag.Title = "Deseja realmente excluir essa Nota?";
+    Layout = "~/Views/Shared/_LayoutDelete.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new {id = "form_Submit"}))
+{
+    
+    <div>
+        <dl class="dl-horizontal">
+            @Html.AntiForgeryToken()            
+            <dt>
+                @Html.DisplayNameFor(model => model.NOT_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NOT_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NOT_DE_NOTA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NOT_DE_NOTA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALT_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALT_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DTU_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DTU_IN_CODIGO)
+            </dd>
+
+        </dl>
+
+    </div>
+}

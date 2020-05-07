@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.Dominio", "GEscolar.Dominio\GEscolar.Dominio.csproj", "{3121B975-3A5E-4910-9B55-6AAC19463394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.RepositorioEF", "GEscolar.RepositorioEF\GEscolar.RepositorioEF.csproj", "{E2498A67-F111-4220-83D9-3700600E20D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.Aplicacao", "GEscolar.Aplicacao\GEscolar.Aplicacao.csproj", "{2819CC32-E921-43E7-A4A1-0AB1D51887D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.UI.Web", "GEscolar.UI.Web\GEscolar.UI.Web.csproj", "{5FF0B583-0BB8-4CA1-B2C2-4264247DA39E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3121B975-3A5E-4910-9B55-6AAC19463394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3121B975-3A5E-4910-9B55-6AAC19463394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3121B975-3A5E-4910-9B55-6AAC19463394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3121B975-3A5E-4910-9B55-6AAC19463394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2498A67-F111-4220-83D9-3700600E20D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2498A67-F111-4220-83D9-3700600E20D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2498A67-F111-4220-83D9-3700600E20D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2498A67-F111-4220-83D9-3700600E20D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2819CC32-E921-43E7-A4A1-0AB1D51887D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2819CC32-E921-43E7-A4A1-0AB1D51887D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2819CC32-E921-43E7-A4A1-0AB1D51887D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2819CC32-E921-43E7-A4A1-0AB1D51887D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF0B583-0BB8-4CA1-B2C2-4264247DA39E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF0B583-0BB8-4CA1-B2C2-4264247DA39E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF0B583-0BB8-4CA1-B2C2-4264247DA39E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF0B583-0BB8-4CA1-B2C2-4264247DA39E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

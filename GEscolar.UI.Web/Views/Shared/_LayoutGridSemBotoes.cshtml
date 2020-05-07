@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.IconPath = "glyphicon glyphicon-th-list";
+}
+
+<br />
+
+@RenderSection("informacoes", required: false)
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="@ViewBag.IconPath"></i> @ViewBag.Title
+        <div style="float: right">
+            @RenderSection("BotoesHeadingGrid", required: false)
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @RenderBody()
+    </div>
+
+    <div class="panel-footer">
+        @RenderSection("FooterBaseIndex", required: false)
+    </div>
+</div>
+
+@RenderSection("scripts", required: false)

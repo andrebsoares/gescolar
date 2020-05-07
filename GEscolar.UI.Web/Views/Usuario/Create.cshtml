@@ -1,0 +1,72 @@
+﻿@using System
+@using System.Collections.Generic
+@model GEscolar.Dominio.gesc_professor
+
+@{
+    ViewBag.Title = "Cadastro de Professor";
+    Layout = "~/Views/Shared/_LayoutEdicao.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRO_ST_NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRO_ST_NOME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRO_ST_NOME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRO_ST_SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRO_ST_SENHA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRO_ST_SENHA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRO_ST_CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRO_ST_CPF, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRO_ST_CPF, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRO_ST_EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PRO_ST_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PRO_ST_EMAIL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PRO_CH_TIPO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.PRO_CH_TIPO, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.PRO_CH_TIPO, new SelectList(
+                                                                          new List<Object>{
+                                                                          new { value = 'P' , text = "Professor" },
+                                                                          new { value = 'S' , text = "Secretaria"},
+                                                                      },
+                                                                      "value",
+                                                                      "text",
+                                                               'P'), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PRO_ST_SENHA, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

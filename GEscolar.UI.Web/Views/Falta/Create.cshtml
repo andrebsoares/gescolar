@@ -1,0 +1,55 @@
+﻿@model GEscolar.Dominio.gesc_falta
+
+@{
+    ViewBag.Title = "Lançamentos de Faltas";
+    Layout = "~/Views/Shared/_LayoutEdicao.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    @Html.AntiForgeryToken()    
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.ALT_IN_CODIGO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ALT_IN_CODIGO, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.DropDownList("ALT_IN_CODIGO", String.Empty)*@
+                @Html.ValidationMessageFor(model => model.ALT_IN_CODIGO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FAL_DT_DIA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FAL_DT_DIA, new { htmlAttributes = new { @class = "form-control" } })                
+                @Html.ValidationMessageFor(model => model.FAL_DT_DIA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FAL_IN_QTDE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FAL_IN_QTDE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FAL_IN_QTDE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DTU_IN_CODIGO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DTU_IN_CODIGO, new { htmlAttributes = new { @class = "form-control" } })
+                @*@html.Dropdownlist("dtu_in_codigo", string.empty)*@
+                @Html.ValidationMessageFor(model => model.DTU_IN_CODIGO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

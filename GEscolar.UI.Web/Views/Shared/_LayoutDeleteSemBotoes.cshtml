@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.IconPath = "glyphicon glyphicon-trash";
+}
+
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="@ViewBag.IconPath"></i>
+        @ViewBag.Title
+    </div>
+
+    <div class="panel-body">
+        @RenderBody()
+    </div>
+
+    <div class="panel-footer">
+        @RenderSection("BotoesFooterDelete", required: false)
+    </div>
+</div>

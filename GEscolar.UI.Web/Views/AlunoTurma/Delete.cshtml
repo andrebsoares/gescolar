@@ -1,0 +1,48 @@
+﻿@model GEscolar.Dominio.gesc_alunoturma
+
+@{
+    ViewBag.Title = "Deseja realmente excluir esse Aluno Turma";
+    Layout = "~/Views/Shared/_LayoutDelete.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    <div>
+        <dl class="dl-horizontal">
+            @Html.AntiForgeryToken()
+            <dt>
+                @Html.DisplayNameFor(model => model.ALT_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALT_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALU_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALU_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TUR_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TUR_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALT_CH_STATUS)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALT_CH_STATUS)
+            </dd>
+
+        </dl>
+
+    </div>
+}

@@ -1,0 +1,53 @@
+﻿@model GEscolar.Dominio.gesc_turma
+
+@{
+    ViewBag.Title = "Cadastro da Turma";
+    Layout = "~/Views/Shared/_LayoutEdicao.cshtml";
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TUR_ST_DESCRICAO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TUR_ST_DESCRICAO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TUR_ST_DESCRICAO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TUR_CH_PERIODO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.TUR_CH_PERIODO, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.TUR_CH_PERIODO, new SelectList(
+                                                                          new List<Object>{
+                                                                          new { value = 'M' , text = "Manhã" },
+                                                                          new { value = 'T' , text = "Tarde"},
+                                                                          new { value = 'N' , text = "Noturno"},                                                                          
+                                                                      },
+                                                                      "value",
+                                                                      "text",
+                                                               'M'), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TUR_CH_PERIODO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CUR_IN_CODIGO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.CUR_IN_CODIGO, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("CUR_IN_CODIGO", String.Empty)
+                @Html.ValidationMessageFor(model => model.CUR_IN_CODIGO, "", new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GEscolar.Dominio.gesc_professor>
+@using GridMvc.Html
+
+@{
+    Layout = "~/Views/Shared/_LayoutGrid.cshtml";
+    ViewBag.Title = "Lista de Professor";
+}
+
+@Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(x => x.PRO_IN_CODIGO).Titled("Código").SetWidth(10).Sortable(true).Filterable(true);
+            columns.Add(x => x.PRO_ST_NOME).Titled("Nome").Sortable(true).Filterable(true);
+            columns.Add(x => x.PRO_ST_CPF).Titled("CPF").Sortable(true).Filterable(true);
+            columns.Add(x => x.PRO_ST_SENHA).Titled("Senha").Sortable(true).Filterable(true);
+            columns.Add(x => x.PRO_CH_TIPO).Titled("Status").Sortable(true).Filterable(true);
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Edit", new { id = d.PRO_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/editar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Editar"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Details", new { id = d.PRO_IN_CODIGO }, new
+                {
+                    style = "background: url('" + Url.Content("~/images/detalhes.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                    @title = "Mais detalhes"
+                })
+        </div>
+    </b>);
+
+            columns.Add()
+.Encoded(false)
+.Sanitized(false)
+.SetWidth(30)
+.RenderValueAs(d =>
+    @<b>
+        <div style="float: right">
+            @Html.ActionLink(" ", "Delete", new { id = d.PRO_IN_CODIGO }, new
+                    {
+                        style = "background: url('" + Url.Content("~/images/apagar.png") + "') no-repeat center right; display:block; height:16px;width:16px; ",
+                        @title = "Apagar"
+                    })
+        </div>
+    </b>);
+        }).WithPaging(10).Sortable(true).WithMultipleFilters().SetLanguage("pt")

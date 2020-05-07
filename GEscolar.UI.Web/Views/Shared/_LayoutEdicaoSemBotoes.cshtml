@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.IconPath = "glyphicon glyphicon-pencil";
+}
+
+<br />
+
+@RenderSection("informacoes", required: false)
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="@ViewBag.IconPath"></i>
+        @ViewBag.Title
+
+        @RenderSection("TituloLayoutSalvar", false)
+    </div>
+
+    <div class="panel-body">
+        @RenderBody()
+    </div>
+
+    <div class="panel-footer">
+        <p>
+            @RenderSection("BotoesFooterGrid", required: false)
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

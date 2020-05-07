@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutGridSemBotoes.cshtml";
+}
+
+@RenderSection("informacoes", required: false)
+
+@section BotoesHeadingGrid{
+    <a href="@Url.Action("Index")" class="btn btn-success" style="color:white; padding-bottom: 1px;padding-top: 1px;">Atualizar</a>
+    @Html.ActionLink("Novo", "Create", null, new { @class = "btn btn-primary", @style = "color:white; padding-bottom: 1px;padding-top: 1px;" })
+}
+
+@RenderBody()
+
+@RenderSection("FooterBaseIndex", required: false)
+
+@RenderSection("scripts", required: false)

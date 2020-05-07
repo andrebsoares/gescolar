@@ -1,0 +1,55 @@
+﻿@model GEscolar.Dominio.gesc_falta
+
+@{
+    ViewBag.Title = "Mais detalhes de Faltas";
+    Layout = "~/Views/Shared/_LayoutInfoSemBotoes.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FAL_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAL_IN_CODIGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ALT_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ALT_IN_CODIGO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAL_DT_DIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAL_DT_DIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAL_IN_QTDE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAL_IN_QTDE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DTU_IN_CODIGO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DTU_IN_CODIGO)
+        </dd>
+
+    </dl>
+</div>
+@section BotoesFooterMaisInfo{
+    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href='@Url.Action("Index")'">Voltar</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='@Url.Action("Edit",new{id = Model.FAL_IN_CODIGO})'">Editar</button>
+}

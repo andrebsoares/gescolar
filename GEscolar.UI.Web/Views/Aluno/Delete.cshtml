@@ -1,0 +1,50 @@
+﻿@model GEscolar.Dominio.gesc_aluno
+
+@{
+    ViewBag.Title = "Deseja realmente excluir esse Aluno?";
+    Layout = "~/Views/Shared/_LayoutDelete.cshtml";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form_Submit" }))
+{
+
+    <div>
+        <dl class="dl-horizontal">
+            @Html.AntiForgeryToken()
+            <dt>
+                @Html.DisplayNameFor(model => model.ALU_IN_CODIGO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALU_IN_CODIGO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALU_ST_NOME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALU_ST_NOME)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALU_ST_CPF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALU_ST_CPF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ALU_CH_STATUS)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ALU_CH_STATUS)
+            </dd>
+
+        </dl>
+
+
+    </div>
+}
